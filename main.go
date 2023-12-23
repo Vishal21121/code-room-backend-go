@@ -3,12 +3,13 @@ package main
 import (
 	"log"
 
+	"github.com/Vishal21121/code-room-backend-go.git/db"
 	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
 	app := fiber.New()
-
+	Client := db.Init()
 	app.Get("/", func(c *fiber.Ctx) error {
 		c.SendStatus(200)
 		return c.JSON(fiber.Map{
