@@ -10,4 +10,5 @@ func SetUpUserRoutes(app *fiber.App, client *mongo.Client) {
 	controller.SetClient(client)
 	userRoutes := app.Group("/api/v1/users")
 	userRoutes.Post("/register", controller.RegisterUser)
+	userRoutes.Post("/login", controller.LoginUser)
 }

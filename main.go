@@ -6,9 +6,14 @@ import (
 	"github.com/Vishal21121/code-room-backend-go.git/db"
 	"github.com/Vishal21121/code-room-backend-go.git/routes"
 	"github.com/gofiber/fiber/v2"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 	app := fiber.New()
 	Client := db.Init()
 	routes.SetUpUserRoutes(app, Client)
